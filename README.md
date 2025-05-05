@@ -67,9 +67,10 @@ Las respuestas serían:
    "De acuerdo a los síntomas descritos, se concluye que el paciente cumple con los criterios diagnósticos del Trastorno de Pánico, según el DSM-5."
    ```
 3. **Diagnosticos por trastornos específicos**
-    - Estas son más ejemplos para opciones de conversación para detectar los trastornos que reconoce el chatbot.
+     Estas son más ejemplos para opciones de conversación para detectar los trastornos que reconoce el chatbot.
 
-    - Trastorno de Depresión Mayor (Criterio A)
+    Trastorno de Depresión Mayor (Criterio A)
+   
     Para el diagnóstico, deben estar presentes cinco (o más) de los siguientes síntomas durante al menos dos semanas, y uno de los síntomas debe ser obligatoriamente el 1 o el 2:
     
     - Mi paciente tiene estado de ánimo deprimido la mayor parte del día, casi todos los días (se siente triste, vacío o sin esperanza; en niños y adolescentes puede presentarse como irritabilidad).
@@ -78,7 +79,7 @@ Las respuestas serían:
     - [...]
     
     Trastorno de Pánico (300.01 / F41.0)
-    - Mi paciente tiene:
+    Mi paciente tiene:
     
     - Palpitaciones, golpeteo del corazón o aceleración de la frecuencia cardiaca.
     - Sudoración.
