@@ -79,6 +79,7 @@ Las respuestas serían:
     - [...]
     
     Trastorno de Pánico (300.01 / F41.0)
+   
     Mi paciente tiene:
     
     - Palpitaciones, golpeteo del corazón o aceleración de la frecuencia cardiaca.
