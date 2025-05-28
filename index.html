@@ -2,32 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Asistente Psicológico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psiquia - Asistente Psicológico</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 </head>
 <body>
-
   <header>
-    <h1>Asistente Virtual para Psicólogos</h1>
-    <p>Consulta de diagnóstico rápido.</p>
+    <h1>Bienvenido a <span class="brand">Psiquia</span></h1>
+    <p>Asistente virtual para profesionales de la psicología.</p>
   </header>
 
   <main>
-    <section class="info">
-      <h2>¿Cómo funciona?</h2>
-      <p>Este asistente está diseñado para ayudar a profesionales de la salud mental a obtener una orientación diagnóstica basada en los sintomas del paciente.</p>
-    </section>
+    <div class="chat-container">
+      <df-messenger
+        intent="WELCOME"
+        chat-title="Psiquia"
+        agent-id="aa8d4062-88dd-458d-a6fc-c137eaadb35c"
+        language-code="es"
+        chat-icon=""
+      ></df-messenger>
+    </div>
   </main>
-
-  <!-- Aquí aparece el widget del chatbot -->
-  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-  <df-messenger
-    intent="WELCOME"
-    chat-title="ChatbotDiagnostico"
-    agent-id="aa8d4062-88dd-458d-a6fc-c137eaadb35c"
-    language-code="es"
-  ></df-messenger>
-
 </body>
 </html>

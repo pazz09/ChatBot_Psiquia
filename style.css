@@ -1,18 +1,22 @@
-/* Fuente y color general */
+/* Fuente profesional */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f4f6f5;
-    color: #2e2e2e;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #f4f6f8;
+    color: #2f3e46;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
   }
   
-  /* Encabezado */
+  /* Cabecera profesional */
   header {
-    background-color: #1565c0;
-    color: white;
+    background-color: #4a6fa5;
+    color: #fff;
     padding: 2rem 1rem;
     text-align: center;
+    width: 100%;
   }
   
   header h1 {
@@ -22,47 +26,32 @@ body {
   
   header p {
     margin-top: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
-  /* Contenido principal */
-  main {
-    padding: 2rem 1rem;
+  .brand {
+    font-weight: bold;
+    color: #ffebc1;
+  }
+  
+  /* Chat centrado */
+  .chat-container {
     display: flex;
     justify-content: center;
-  }
-  
-  section.info {
-    background-color: white;
-    max-width: 800px;
+    align-items: center;
+    flex-grow: 1;
     width: 100%;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
   }
   
-  section.info h2 {
-    color: #1565c0;
-    font-size: 1.8rem;
-  }
-  
-  section.info p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  
-  /* Estilos personalizados para Dialogflow Messenger */
+  /* Estilo del widget de Dialogflow */
   df-messenger {
-    --df-messenger-button-titlebar-color: #1565c0;
-    --df-messenger-chat-background-color: #ffffff;
-    --df-messenger-font-color: #2e2e2e;
-    --df-messenger-send-icon: #1565c0;
-    --df-messenger-user-message: #e3f2fd;
-    --df-messenger-bot-message: #f1f1f1;
-    --df-messenger-chip-color: #1565c0;
-    --df-messenger-chip-border-color: #ffffff;
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
+    width: 100%;
+    max-width: 500px;
+    height: 600px;
+  }
+  
+  df-messenger::part(chat-wrapper) {
+    height: 100%;
   }
   
