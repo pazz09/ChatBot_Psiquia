@@ -1,57 +1,83 @@
-/* Fuente profesional */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Roboto, sans-serif;
-    background-color: #f4f6f8;
-    color: #2f3e46;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  /* Cabecera profesional */
-  header {
-    background-color: #4a6fa5;
-    color: #fff;
-    padding: 2rem 1rem;
-    text-align: center;
-    width: 100%;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
-  
-  header p {
-    margin-top: 0.5rem;
-    font-size: 1.1rem;
-  }
-  
-  .brand {
-    font-weight: bold;
-    color: #ffebc1;
-  }
-  
-  /* Chat centrado */
-  .chat-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    width: 100%;
-    margin: 2rem 0;
-  }
-  
-  /* Estilo del widget de Dialogflow */
-  df-messenger {
-    width: 100%;
-    max-width: 500px;
-    height: 600px;
-  }
-  
-  df-messenger::part(chat-wrapper) {
-    height: 100%;
-  }
-  
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f5;
+      color: #333;
+      display: flex;
+    }
+
+    /* LADO IZQUIERDO: CONTENIDO */
+    .main-content {
+      width: 50vw;
+      padding: 2rem;
+      overflow-y: auto;
+      height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background-color: #005f73;
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      color: white;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* MAIN */
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #005f73;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #003845;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    /* CHAT FIJO */
+    df-messenger {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 50vw;
+      height: 100vh;
+      z-index: 999;
+      border-left: 2px solid #ccc;
+      --df-messenger-button-titlebar-color: #005f73;
+      --df-messenger-chat-background-color: #ffffff;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #005f73;
+      --df-messenger-user-message: #e0f7fa;
+    }
+
+    df-messenger .df-messenger-titlebar {
+      display: none; /* ocultar barra superior flotante */
+    }

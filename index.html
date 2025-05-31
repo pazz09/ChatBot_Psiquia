@@ -3,26 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Psiquia - Asistente Psicológico</title>
+  <title>Psiquia</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+  
 </head>
 <body>
-  <header>
-    <h1>Bienvenido a <span class="brand">Psiquia</span></h1>
-    <p>Asistente virtual para profesionales de la psicología.</p>
-  </header>
 
-  <main>
-    <div class="chat-container">
-      <df-messenger
-        intent="WELCOME"
-        chat-title="Psiquia"
-        agent-id="aa8d4062-88dd-458d-a6fc-c137eaadb35c"
-        language-code="es"
-        chat-icon=""
-      ></df-messenger>
-    </div>
-  </main>
+  <!-- CONTENIDO IZQUIERDO -->
+  <div class="main-content">
+    <header>
+      <div style="display: flex; align-items: center;">
+        <img src="/images/LogoPsiquIA.png" alt="Logo Psiquia" />
+        <h2 style="margin-left: 1rem;">PSIQUIA</h2>
+      </div>
+      <nav>
+        <a href="#chat">Chat</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#acerca">Acerca del Chatbot</a>
+        <a href="#historial">Historial</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="chat">
+        <h1>Bienvenido a PSIQUIA</h1>
+        <p>Conversa con nuestro asistente para obtener una orientación clínica basada en los síntomas de tu paciente.</p>
+      </section>
+
+      <section id="perfil">
+        <h2>Perfil</h2>
+        <p>Aquí podrás ver y editar tu perfil próximamente.</p>
+      </section>
+
+      <section id="acerca">
+        <h2>Acerca del Chatbot</h2>
+        <p>Este chatbot está diseñado para orientar clínicamente a profesionales en salud mental. No reemplaza una evaluación médica profesional.</p>
+      </section>
+
+      <section id="historial">
+        <h2>Historial</h2>
+        <p>Aquí se mostrará el historial de conversaciones en el futuro.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Psiquia. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  
+  
+  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+
+  <df-messenger
+    project-id="chatbot-psiquia"
+    agent-id="808dcbf3-3872-481d-99b2-f1ae9092f3c9"
+    language-code="es"
+    max-query-length="-1">
+    <df-messenger-chat
+      chat-title="Asistente Clínico Psiquia">
+    </df-messenger-chat>
+  </df-messenger>
+
+
+
+
+
+  <script src="script.js"></script>
 </body>
 </html>
+
+
