@@ -111,7 +111,6 @@ La interfaz web de PsiquIA presenta:
 
 - **Identificación de síntomas:** El sistema analiza la información proporcionada sobre el paciente y reconoce patrones de síntomas relevantes.
 - **Sugerencia de posibles diagnósticos:** Basándose en los criterios del DSM-5, sugiere posibles diagnósticos diferenciales.
-- **Recomendación de metodologías:** Propone intervenciones basadas en diversos enfoques terapéuticos según el perfil del paciente y diagnóstico preliminar.
 
 ## ⚠️ Limitaciones actuales
 
@@ -121,7 +120,7 @@ La interfaz web de PsiquIA presenta:
 
 ## 🛠️ Tecnologías utilizadas
 
-- DialogFlow (Google) para la construcción del chatbot
+- DialogFlow CX (Google) para la construcción del chatbot
 - HTML5, CSS3 para la interfaz web
 - JavaScript para la interactividad
 
