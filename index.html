@@ -6,29 +6,31 @@
   <title>Psiquia</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-  
 </head>
 <body>
 
   <!-- CONTENIDO IZQUIERDO -->
-  <div class="main-content">
+  <div class="main-content" id="mainContent">
     <header>
       <div style="display: flex; align-items: center;">
         <img src="/images/LogoPsiquIA.png" alt="Logo Psiquia" />
         <h2 style="margin-left: 1rem;">PSIQUIA</h2>
       </div>
       <nav>
-        <a href="#chat">Chat</a>
-        <a href="#perfil">Perfil</a>
-        <a href="#acerca">Acerca del Chatbot</a>
-        <a href="#historial">Historial</a>
+        <a onclick="openChat()" id="chat-btn">Chat</a>
+        <a onclick="showSection('perfil')">Perfil</a>
+        <a onclick="showSection('acerca')">Acerca del Chatbot</a>
+        <a onclick="showSection('historial')">Historial</a>
       </nav>
     </header>
 
     <main>
-      <section id="chat">
+      <section id="chat" class="active">
         <h1>Bienvenido a PSIQUIA</h1>
         <p>Conversa con nuestro asistente para obtener una orientación clínica basada en los síntomas de tu paciente.</p>
+        <button onclick="openChat()" style="background-color: #005f73; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+          Abrir Chat Clínico
+        </button>
       </section>
 
       <section id="perfil">
@@ -52,26 +54,24 @@
     </footer>
   </div>
 
-  
-  
-  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-
-  <df-messenger
-    project-id="chatbot-psiquia"
-    agent-id="808dcbf3-3872-481d-99b2-f1ae9092f3c9"
-    language-code="es"
-    max-query-length="-1">
-    <df-messenger-chat
-      chat-title="Asistente Clínico Psiquia">
-    </df-messenger-chat>
-  </df-messenger>
-
-
-
-
+  <!-- CONTAINER DEL CHAT - Nuevo contenedor -->
+  <div class="chat-container" id="chatContainer">
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    
+    <df-messenger
+      project-id="chatbot-psiquia"
+      agent-id="808dcbf3-3872-481d-99b2-f1ae9092f3c9"
+      language-code="es"
+      max-query-length="-1">
+      <df-messenger-chat
+        chat-title="Asistente Clínico Psiquia">
+      </df-messenger-chat>
+    </df-messenger>
+    
+    <!-- Botón de cerrar flotante -->
+    <button onclick="closeChat()" class="close-chat-btn">×</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
