@@ -4,48 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Psiquia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Cargar variables de entorno con SUPABASE_URL y SUPABASE_ANON_KEY -->
+  <script src="env.js"></script>
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
   <!-- CONTENIDO IZQUIERDO -->
   <div class="main-content" id="mainContent">
     <header>
-      <div style="display: flex; align-items: center;">
+      <div class="header-left">
         <img src="/images/LogoPsiquIA.png" alt="Logo Psiquia" />
         <h2 style="margin-left: 1rem;">PSIQUIA</h2>
       </div>
-      <nav>
-        <a onclick="openChat()" id="chat-btn">Chat</a>
-        <a onclick="showSection('perfil')">Perfil</a>
-        <a onclick="showSection('acerca')">Acerca del Chatbot</a>
-        <a onclick="showSection('historial')">Historial</a>
-      </nav>
+      <div class="header-right">
+        <div class="user-info" id="userInfo">
+          <i class="fas fa-user-circle"></i>
+          <span class="user-status" id="userStatus">Usuario Anónimo</span>
+        </div>
+        <button class="auth-btn" id="authBtn" onclick="toggleAuth()">Iniciar Sesión</button>
+        <nav>
+          <a onclick="openChat()" id="chat-btn">Chat</a>
+          <a onclick="showSection('perfil')">Perfil</a>
+          <a onclick="showSection('acerca')">Acerca del Chatbot</a>
+          <a onclick="showSection('historial')">Historial</a>
+        </nav>
+      </div>
     </header>
 
     <main>
+      <!-- SECCIÓN PRINCIPAL -->
       <section id="chat" class="active">
         <h1>Bienvenido a PSIQUIA</h1>
         <p>Conversa con nuestro asistente para obtener una orientación clínica basada en los síntomas de tu paciente.</p>
-        <button onclick="openChat()" style="background-color: #005f73; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        <div id="userWelcome"></div>
+        <button onclick="openChat()" class="chat-open-btn">
+          <i class="fas fa-comments"></i>
           Abrir Chat Clínico
         </button>
       </section>
 
+      <!-- SECCIÓN DE AUTENTICACIÓN -->
+      <section id="auth">
+        <div id="loginForm" class="auth-form">
+          <h2>Iniciar Sesión</h2>
+          <div id="loginError" class="error-message" style="display: none;"></div>
+          <div class="form-group">
+            <label for="loginEmail">Correo Electrónico:</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Contraseña:</label>
+            <input type="password" id="loginPassword" required>
+          </div>
+          <button class="form-btn" onclick="login()">Iniciar Sesión</button>
+          <div class="form-switch">
+            ¿No tienes cuenta? <a href="#" onclick="showRegister()">Regístrate aquí</a>
+          </div>
+        </div>
+
+        <div id="registerForm" class="auth-form" style="display: none;">
+          <h2>Crear Cuenta</h2>
+          <div id="registerError" class="error-message" style="display: none;"></div>
+          <div id="registerSuccess" class="success-message" style="display: none;"></div>
+          <div class="form-group">
+            <label for="registerName">Nombre Completo:</label>
+            <input type="text" id="registerName" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Correo Electrónico:</label>
+            <input type="email" id="registerEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Contraseña:</label>
+            <input type="password" id="registerPassword" required>
+          </div>
+          <button class="form-btn" onclick="register()">Crear Cuenta</button>
+          <div class="form-switch">
+            ¿Ya tienes cuenta? <a href="#" onclick="showLogin()">Inicia sesión aquí</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN PERFIL -->
       <section id="perfil">
-        <h2>Perfil</h2>
-        <p>Aquí podrás ver y editar tu perfil próximamente.</p>
+        <h2>Perfil de Usuario</h2>
+        <div id="profileContent">
+          <div class="loading">Cargando información del perfil...</div>
+        </div>
       </section>
 
+      <!-- SECCIÓN ACERCA -->
       <section id="acerca">
-        <h2>Acerca del Chatbot</h2>
-        <p>Este chatbot está diseñado para orientar clínicamente a profesionales en salud mental. No reemplaza una evaluación médica profesional.</p>
+        <div class="about-container">
+          <h2>Acerca del Chatbot</h2>
+          <p>Este chatbot está diseñado para orientar clínicamente a profesionales en salud mental. No reemplaza una evaluación médica profesional.</p>
+          <h3>Características:</h3>
+          <ul class="features-list">
+            <li><strong>Usuarios Registrados:</strong> Tu historial se guarda permanentemente en la base de datos</li>
+            <li><strong>Usuarios Anónimos:</strong> Tu historial se mantiene solo durante la sesión actual</li>
+            <li><strong>Privacidad:</strong> Todos los datos están protegidos y encriptados</li>
+            <li><strong>Acceso:</strong> Disponible 24/7 para orientación clínica</li>
+          </ul>
+        </div>
       </section>
 
+      <!-- SECCIÓN HISTORIAL -->
       <section id="historial">
-        <h2>Historial</h2>
-        <p>Aquí se mostrará el historial de conversaciones en el futuro.</p>
+        <h2>Historial de Conversaciones</h2>
+        <div id="historialContent">
+          <div class="loading">Cargando historial...</div>
+        </div>
       </section>
     </main>
 
@@ -54,25 +126,31 @@
     </footer>
   </div>
 
-  <!-- CONTAINER DEL CHAT - Nuevo contenedor -->
+  <!-- CONTAINER DEL CHAT -->
   <div class="chat-container" id="chatContainer">
-    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-    
     <df-messenger
       location="us-central1"
       project-id="chatbot-final-463118"
       agent-id="944d42ca-6ac2-4373-b849-917d14c160a5"
       language-code="es"
       max-query-length="-1">
-      <df-messenger-chat
-        chat-title="PSIQUIA">
+      <df-messenger-chat chat-title="PSIQUIA">
       </df-messenger-chat>
     </df-messenger>
     
-    <!-- Botón de cerrar flotante -->
+    <!-- Botón para guardar conversación -->
+    <button class="save-conversation-btn" onclick="guardarConversacion()">
+      <i class="fas fa-save"></i>
+      <span>Guardar conversación</span>
+    </button>
+
+    <!-- Botón cerrar chat -->
     <button onclick="closeChat()" class="close-chat-btn">×</button>
   </div>
 
+
+
+  <!-- Tu script principal -->
   <script src="script.js"></script>
 </body>
 </html>
