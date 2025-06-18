@@ -6,7 +6,7 @@
   <title>Psiquia</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
   <!-- Cargar variables de entorno con SUPABASE_URL y SUPABASE_ANON_KEY -->
   <script src="env.js"></script>
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
@@ -15,23 +15,24 @@
 <body>
   <!-- CONTENIDO IZQUIERDO -->
   <div class="main-content" id="mainContent">
-    <header>
+    <header class="header">
       <div class="header-left">
         <img src="/images/LogoPsiquIA.png" alt="Logo Psiquia" />
-        <h2 style="margin-left: 1rem;">PSIQUIA</h2>
+        <h2>PSIQUIA</h2>
       </div>
+      <nav class="main-nav">
+        <a onclick="openChat()"id="chat-btn">Chat</a>
+        <a onclick="showSection('perfil')">Perfil</a>
+        <a onclick="showSection('acerca')">Acerca</a>
+        <a onclick="showSection('historial')">Historial</a>
+      </nav>
       <div class="header-right">
         <div class="user-info" id="userInfo">
           <i class="fas fa-user-circle"></i>
           <span class="user-status" id="userStatus">Usuario Anónimo</span>
         </div>
+        
         <button class="auth-btn" id="authBtn" onclick="toggleAuth()">Iniciar Sesión</button>
-        <nav>
-          <a onclick="openChat()" id="chat-btn">Chat</a>
-          <a onclick="showSection('perfil')">Perfil</a>
-          <a onclick="showSection('acerca')">Acerca del Chatbot</a>
-          <a onclick="showSection('historial')">Historial</a>
-        </nav>
       </div>
     </header>
 
@@ -152,5 +153,11 @@
 
   <!-- Tu script principal -->
   <script src="script.js"></script>
+
+
+  <button class="chat-toggle-button" onclick="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
 </body>
 </html>
