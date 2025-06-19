@@ -160,7 +160,7 @@ function updateUserInterface() {
     userStatus.textContent = 'Usuario Anónimo';
     authBtn.textContent = 'Iniciar Sesión';
     authBtn.onclick = toggleAuth;
-    userWelcome.innerHTML = `<p style="color: #0a9396;">Navegando como usuario anónimo. <a href="#" onclick="toggleAuth()" style="color: #005f73; text-decoration: underline;">Inicia sesión</a> para guardar tus conversaciones permanentemente.</p>`;
+    userWelcome.innerHTML = `<p style="color: #0a9396;">Navegando como usuario anónimo. <a href="#" onclick="toggleAuth()" style="color: #005f73; text-decoration: underline;">Inicia sesión</a> para guardar tus pacientes en tu perfil de forma permanente.</p>`;
   }
   
   // Al actualizar interfaz, recargar historial y perfil en la sección activa

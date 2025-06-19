@@ -13,18 +13,19 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <!-- CONTENIDO IZQUIERDO -->
   <div class="main-content" id="mainContent">
     <header class="header">
-      <div class="header-left">
-        <img src="/images/LogoPsiquIA.png" alt="Logo Psiquia" />
-        <h2>PSIQUIA</h2>
-      </div>
+      <a href="#" onclick="showSection('chat')" class="header-logo-link">
+        <div class="header-left">
+          <img src="images/logo.png" alt="Logo Psiquia" />
+          <h2>PSIQUIA</h2>
+        </div>
+      </a>
       <nav class="main-nav">
-        <a onclick="openChat()"id="chat-btn">Chat</a>
-        <a onclick="showSection('perfil')">Perfil</a>
-        <a onclick="showSection('acerca')">Acerca</a>
-        <a onclick="showSection('historial')">Historial</a>
+        <a onclick="openChat()"id="chat-btn">ChatBot Psiquia</a>
+        <a onclick="showSection('perfil')">Perfil usuario</a>
+        <a onclick="showSection('acerca')">Acerca de</a>
+        <a onclick="showSection('historial')">Historial de pacientes</a>
       </nav>
       <div class="header-right">
         <div class="user-info" id="userInfo">
@@ -39,8 +40,19 @@
     <main>
       <!-- SECCIÓN PRINCIPAL -->
       <section id="chat" class="active">
-        <h1>Bienvenido a PSIQUIA</h1>
-        <p>Conversa con nuestro asistente para obtener una orientación clínica basada en los síntomas de tu paciente.</p>
+        <div class="intro-text">
+          <h1>Bienvenido a <strong>PSIQUIA</strong></h1>
+          <p>
+            Psiquia es tu asistente clínico virtual, diseñado para apoyar a profesionales de la salud mental en la identificación de posibles trastornos psicológicos.
+            A través de una conversación estructurada, puedes ingresar síntomas y observaciones clínicas de tus pacientes, y Psiquia te proporcionará una orientación diagnóstica basada en los criterios del DSM-5.
+          </p>
+          
+        </div>
+        <div class="foto-container">
+          <img src="images/logoNegro.png" id="foto" alt="Logo Psiquia" />
+          <img src="images/logoNegro.png" id="foto2" alt="foto espejo" />
+        </div>
+        
         <div id="userWelcome"></div>
         <button onclick="openChat()" class="chat-open-btn">
           <i class="fas fa-comments"></i>
