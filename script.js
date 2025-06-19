@@ -412,16 +412,16 @@ function showManualCaptureDialog() {
     modal.innerHTML = `
       <div class="modal-content" style="max-width: 600px;">
         <h3>Captura Manual de Conversación</h3>
-        <p>No se pudo capturar automáticamente. Por favor, pega el contenido de la conversación:</p>
+        <p>No se pudo capturar automáticamente. Por favor, escribe el diagnóstico:</p>
         <div class="form-group">
-          <label for="manualConversation">Conversación:</label>
+          <label for="manualConversation">Diagnóstico:</label>
           <textarea id="manualConversation" rows="10" 
-                    placeholder="Pega aquí el contenido de la conversación...
+    placeholder="Escribe aquí el contenido de la conversación...
 Ejemplo:
-Usuario: Hola, necesito ayuda
-Bot: ¡Hola! ¿En qué puedo ayudarte?
-Usuario: Mi paciente tiene ansiedad
-Bot: Entiendo, cuéntame más detalles..."></textarea>
+El paciente manifestó síntomas compatibles con un trastorno depresivo mayor, incluyendo 
+anhedonia, alteraciones del sueño y fatiga persistente. A lo largo de la conversación, se 
+identificaron elementos que podrían vincularse con criterios diagnósticos del DSM-5. 
+Se recomienda derivación para evaluación clínica formal y considerar intervenciones psicoeducativas iniciales."></textarea>
         </div>
         <div class="modal-buttons">
           <button class="form-btn" onclick="processManualConversation()">
